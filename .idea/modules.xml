@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CS Client Cluster Build 1.0.0/CS Client Cluster Build 1.0.0.iml" filepath="$PROJECT_DIR$/CS Client Cluster Build 1.0.0/CS Client Cluster Build 1.0.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CustomerWebService/src/CustomerWebService.iml" filepath="$PROJECT_DIR$/CustomerWebService/src/CustomerWebService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EmployeeWebService/src/EmployeeWebService.iml" filepath="$PROJECT_DIR$/EmployeeWebService/src/EmployeeWebService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CS Client Cluster Build 1.0.0/build/generated-sources/generated-sources.iml" filepath="$PROJECT_DIR$/CS Client Cluster Build 1.0.0/build/generated-sources/generated-sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CS Client Cluster Build 1.0.0/build/generated/jax-wsCache/jax-wsCache.iml" filepath="$PROJECT_DIR$/CS Client Cluster Build 1.0.0/build/generated/jax-wsCache/jax-wsCache.iml" />
+    </modules>
+  </component>
+</project>
