@@ -6,6 +6,7 @@
 package GUIApplication;
 
 import Client.Client;
+import employeewebservice.Employee;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -15,13 +16,29 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EmployeeList extends javax.swing.JFrame {
 
-    static List<customerwebservice.Customer> cus;
+    List<Employee> employees = Client.viewEmployeesList();
 
     /**
      * Creates new form Employee
      */
     public EmployeeList() {
         initComponents();
+        
+        //employees = 
+
+        for (Employee c : employees) {
+            System.out.println(c.getUserName());
+        }
+        Object columnNames[] = {"Name", "Position", "Username", "password"};
+
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+        for (int x = 0; x < employees.size(); x++) {
+            Object rowData[] = {employees.get(x).getName(), employees.get(x).getPost(), employees.get(x).getUserName(), employees.get(x).getPassword()};
+            model.addRow(rowData);
+        }
+
+        jTable1.setModel(model);
 
     }
 
@@ -38,7 +55,6 @@ public class EmployeeList extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setTitle("LootHeap Employee List ");
 
@@ -54,48 +70,89 @@ public class EmployeeList extends javax.swing.JFrame {
             }
         ));
         jTable1.setName("table"); // NOI18N
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Add Employee");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton2");
-
-        jButton3.setText("jButton3");
+        jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(88, 88, 88)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(jButton1)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton2)
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton3)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        EmployeePage.main(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        Object columnNames[] = {"Name", "Position", "Username", "password"};
+
+        employees = Client.viewEmployeesList();
+
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+        for (int x = 0; x < employees.size(); x++) {
+            Object rowData[] = {employees.get(x).getName(), employees.get(x).getPost(), employees.get(x).getUserName(), employees.get(x).getPassword()};
+            model.addRow(rowData);
+        }
+
+        jTable1.setModel(model);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int row = jTable1.rowAtPoint(evt.getPoint());
+
+        EmployeePage c = new EmployeePage(employees.get(row));
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -136,7 +193,6 @@ public class EmployeeList extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

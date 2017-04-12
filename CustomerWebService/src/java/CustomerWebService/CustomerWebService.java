@@ -6,6 +6,7 @@
 package CustomerWebService;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -28,14 +29,6 @@ public class CustomerWebService {
         return f;
     }
 
-    /**
-     * Web service operation
-     */
-    @WebMethod(operationName = "viewCustomer")
-    public Customer viewCustomer(@WebParam(name = "accountNumber") String accountNumber) {
-        //TODO write your implementation code here:
-        return null;
-    }
 
     /**
      * Web service operation
@@ -52,12 +45,34 @@ public class CustomerWebService {
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "operation")
-    public String operation(@WebParam(name = "parameter") String parameter) {
+    @WebMethod(operationName = "editCustomer")
+    public Boolean editCustomer(@WebParam(name = "newCustomer") Customer newCustomer) {
         //TODO write your implementation code here:
-
-        f.add(new Customer("9000010", "Current", "Colombo", "21-12-1996", "299.99", "Debit", "shon@gmail.com", "0778485789", "Ashwin", "SORT0474"));
-        f.add(new Customer("9000011", "Fixed", "Kandy", "01-12-1896", "1499.99", "Debit", "shonny@gmail.com", "0775485789", "Thilo", "SORT0494"));
-        return parameter + " asdf";
+        Iterator<Customer> iterator = f.iterator();
+        while (iterator.hasNext()) {
+            if(iterator.next().accountNumber.equalsIgnoreCase(newCustomer.accountNumber)){
+                f.remove(iterator.next());
+                f.add(newCustomer);
+                break;
+            }
+        }
+        return true;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "deleteCustomer")
+    public Boolean deleteCustomer(@WebParam(name = "iD") String iD) {
+        //TODO write your implementation code here:
+        Iterator<Customer> iterator = f.iterator();
+        while (iterator.hasNext()) {
+            if(iterator.next().accountNumber.equalsIgnoreCase(iD)){
+                f.remove(iterator.next());
+                break;
+            }
+        }
+        return true;
+    }
+
 }

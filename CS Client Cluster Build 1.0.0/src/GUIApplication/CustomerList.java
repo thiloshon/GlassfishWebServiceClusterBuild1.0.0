@@ -7,7 +7,6 @@ package GUIApplication;
 
 import Client.Client;
 
-import static GUIApplication.EmployeeList.cus;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

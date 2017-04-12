@@ -6,11 +6,16 @@
 package GUIApplication;
 
 import Client.Client;
+import employeewebservice.Employee;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  * @author Thiloshon
  */
 public class App extends javax.swing.JFrame {
+
+    List<Employee> employeesCheck = Client.viewEmployeesList();
 
     /**
      * Creates new form App
@@ -142,7 +147,35 @@ public class App extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        CustomerList.main(null);
+        System.out.print("Asdf " +employeesCheck.size());
+        boolean check = false;
+        
+        
+        for (Employee emp : employeesCheck) {
+            System.out.print(emp.getName());
+            if (emp.getUserName().equalsIgnoreCase(jTextField1.getText()) && emp.getPassword().equalsIgnoreCase(new String(jPasswordField1.getPassword()))) {
+                check = true;
+                break;
+            } else if (emp.getUserName().equalsIgnoreCase(jTextField1.getText())) {
+                JOptionPane.showMessageDialog(null, "Incorrect Password");
+                jTextField1.setText("");
+                
+                break;
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Incorrect Combination. Try Again");
+                jTextField1.setText("");
+                jPasswordField1.setText("");
+                break;
+            } 
+        }
+
+        if(check){
+            CustomerList.main(null);
+        }
+        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

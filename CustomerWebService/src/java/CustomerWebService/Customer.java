@@ -21,6 +21,19 @@ public class Customer {
     public String name;
     public String sortCode;
 
+    /**
+     *
+     * @param accountNumber
+     * @param accountType
+     * @param address
+     * @param birthDate
+     * @param balance
+     * @param card
+     * @param email
+     * @param mobile
+     * @param name
+     * @param sortCode
+     */
     public Customer(String accountNumber, String accountType, String address, String birthDate, String balance, String card, String email, String mobile, String name, String sortCode) {
         this.accountNumber = accountNumber;
         this.accountType = accountType;

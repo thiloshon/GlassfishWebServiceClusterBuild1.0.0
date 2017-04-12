@@ -26,12 +26,12 @@ public class ObjectFactory {
 
     private final static QName _ViewCustomerList_QNAME = new QName("http://CustomerWebService/", "viewCustomerList");
     private final static QName _AddCustomerResponse_QNAME = new QName("http://CustomerWebService/", "addCustomerResponse");
-    private final static QName _OperationResponse_QNAME = new QName("http://CustomerWebService/", "operationResponse");
-    private final static QName _ViewCustomer_QNAME = new QName("http://CustomerWebService/", "viewCustomer");
     private final static QName _AddCustomer_QNAME = new QName("http://CustomerWebService/", "addCustomer");
-    private final static QName _Operation_QNAME = new QName("http://CustomerWebService/", "operation");
+    private final static QName _EditCustomer_QNAME = new QName("http://CustomerWebService/", "editCustomer");
+    private final static QName _DeleteCustomerResponse_QNAME = new QName("http://CustomerWebService/", "deleteCustomerResponse");
+    private final static QName _EditCustomerResponse_QNAME = new QName("http://CustomerWebService/", "editCustomerResponse");
+    private final static QName _DeleteCustomer_QNAME = new QName("http://CustomerWebService/", "deleteCustomer");
     private final static QName _ViewCustomerListResponse_QNAME = new QName("http://CustomerWebService/", "viewCustomerListResponse");
-    private final static QName _ViewCustomerResponse_QNAME = new QName("http://CustomerWebService/", "viewCustomerResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: customerwebservice
@@ -46,6 +46,14 @@ public class ObjectFactory {
      */
     public AddCustomer createAddCustomer() {
         return new AddCustomer();
+    }
+
+    /**
+     * Create an instance of {@link EditCustomer }
+     * 
+     */
+    public EditCustomer createEditCustomer() {
+        return new EditCustomer();
     }
 
     /**
@@ -65,19 +73,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link OperationResponse }
+     * Create an instance of {@link DeleteCustomer }
      * 
      */
-    public OperationResponse createOperationResponse() {
-        return new OperationResponse();
-    }
-
-    /**
-     * Create an instance of {@link ViewCustomer }
-     * 
-     */
-    public ViewCustomer createViewCustomer() {
-        return new ViewCustomer();
+    public DeleteCustomer createDeleteCustomer() {
+        return new DeleteCustomer();
     }
 
     /**
@@ -89,19 +89,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ViewCustomerResponse }
+     * Create an instance of {@link DeleteCustomerResponse }
      * 
      */
-    public ViewCustomerResponse createViewCustomerResponse() {
-        return new ViewCustomerResponse();
+    public DeleteCustomerResponse createDeleteCustomerResponse() {
+        return new DeleteCustomerResponse();
     }
 
     /**
-     * Create an instance of {@link Operation }
+     * Create an instance of {@link EditCustomerResponse }
      * 
      */
-    public Operation createOperation() {
-        return new Operation();
+    public EditCustomerResponse createEditCustomerResponse() {
+        return new EditCustomerResponse();
     }
 
     /**
@@ -131,24 +131,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "operationResponse")
-    public JAXBElement<OperationResponse> createOperationResponse(OperationResponse value) {
-        return new JAXBElement<OperationResponse>(_OperationResponse_QNAME, OperationResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ViewCustomer }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "viewCustomer")
-    public JAXBElement<ViewCustomer> createViewCustomer(ViewCustomer value) {
-        return new JAXBElement<ViewCustomer>(_ViewCustomer_QNAME, ViewCustomer.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddCustomer }{@code >}}
      * 
      */
@@ -158,12 +140,39 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Operation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EditCustomer }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "operation")
-    public JAXBElement<Operation> createOperation(Operation value) {
-        return new JAXBElement<Operation>(_Operation_QNAME, Operation.class, null, value);
+    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "editCustomer")
+    public JAXBElement<EditCustomer> createEditCustomer(EditCustomer value) {
+        return new JAXBElement<EditCustomer>(_EditCustomer_QNAME, EditCustomer.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteCustomerResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "deleteCustomerResponse")
+    public JAXBElement<DeleteCustomerResponse> createDeleteCustomerResponse(DeleteCustomerResponse value) {
+        return new JAXBElement<DeleteCustomerResponse>(_DeleteCustomerResponse_QNAME, DeleteCustomerResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EditCustomerResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "editCustomerResponse")
+    public JAXBElement<EditCustomerResponse> createEditCustomerResponse(EditCustomerResponse value) {
+        return new JAXBElement<EditCustomerResponse>(_EditCustomerResponse_QNAME, EditCustomerResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteCustomer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "deleteCustomer")
+    public JAXBElement<DeleteCustomer> createDeleteCustomer(DeleteCustomer value) {
+        return new JAXBElement<DeleteCustomer>(_DeleteCustomer_QNAME, DeleteCustomer.class, null, value);
     }
 
     /**
@@ -173,15 +182,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://CustomerWebService/", name = "viewCustomerListResponse")
     public JAXBElement<ViewCustomerListResponse> createViewCustomerListResponse(ViewCustomerListResponse value) {
         return new JAXBElement<ViewCustomerListResponse>(_ViewCustomerListResponse_QNAME, ViewCustomerListResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ViewCustomerResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "viewCustomerResponse")
-    public JAXBElement<ViewCustomerResponse> createViewCustomerResponse(ViewCustomerResponse value) {
-        return new JAXBElement<ViewCustomerResponse>(_ViewCustomerResponse_QNAME, ViewCustomerResponse.class, null, value);
     }
 
 }

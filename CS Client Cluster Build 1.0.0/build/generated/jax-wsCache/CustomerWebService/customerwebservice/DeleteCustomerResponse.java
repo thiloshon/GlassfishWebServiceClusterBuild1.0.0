@@ -3,20 +3,21 @@ package customerwebservice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for operation complex type.
+ * <p>Java class for deleteCustomerResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="operation">
+ * &lt;complexType name="deleteCustomerResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="parameter" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +27,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "operation", propOrder = {
-    "parameter"
+@XmlType(name = "deleteCustomerResponse", propOrder = {
+    "_return"
 })
-public class Operation {
+public class DeleteCustomerResponse {
 
-    protected String parameter;
+    @XmlElement(name = "return")
+    protected Boolean _return;
 
     /**
-     * Gets the value of the parameter property.
+     * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Boolean }
      *     
      */
-    public String getParameter() {
-        return parameter;
+    public Boolean isReturn() {
+        return _return;
     }
 
     /**
-     * Sets the value of the parameter property.
+     * Sets the value of the return property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Boolean }
      *     
      */
-    public void setParameter(String value) {
-        this.parameter = value;
+    public void setReturn(Boolean value) {
+        this._return = value;
     }
 
 }

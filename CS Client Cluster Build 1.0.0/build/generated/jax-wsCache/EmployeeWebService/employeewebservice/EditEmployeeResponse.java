@@ -1,22 +1,23 @@
 
-package customerwebservice;
+package employeewebservice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for viewCustomer complex type.
+ * <p>Java class for editEmployeeResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="viewCustomer">
+ * &lt;complexType name="editEmployeeResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="accountNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +27,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "viewCustomer", propOrder = {
-    "accountNumber"
+@XmlType(name = "editEmployeeResponse", propOrder = {
+    "_return"
 })
-public class ViewCustomer {
+public class EditEmployeeResponse {
 
-    protected String accountNumber;
+    @XmlElement(name = "return")
+    protected Boolean _return;
 
     /**
-     * Gets the value of the accountNumber property.
+     * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Boolean }
      *     
      */
-    public String getAccountNumber() {
-        return accountNumber;
+    public Boolean isReturn() {
+        return _return;
     }
 
     /**
-     * Sets the value of the accountNumber property.
+     * Sets the value of the return property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Boolean }
      *     
      */
-    public void setAccountNumber(String value) {
-        this.accountNumber = value;
+    public void setReturn(Boolean value) {
+        this._return = value;
     }
 
 }
