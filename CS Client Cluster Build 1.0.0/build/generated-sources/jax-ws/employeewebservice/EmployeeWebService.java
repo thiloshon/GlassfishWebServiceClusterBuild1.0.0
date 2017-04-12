@@ -27,6 +27,18 @@ public interface EmployeeWebService {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<employeewebservice.Employee>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "viewEmployeesList", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.ViewEmployeesList")
+    @ResponseWrapper(localName = "viewEmployeesListResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.ViewEmployeesListResponse")
+    @Action(input = "http://EmployeeWebService/EmployeeWebService/viewEmployeesListRequest", output = "http://EmployeeWebService/EmployeeWebService/viewEmployeesListResponse")
+    public List<Employee> viewEmployeesList();
+
+    /**
+     * 
      * @param employee
      * @return
      *     returns java.lang.Boolean
@@ -39,21 +51,6 @@ public interface EmployeeWebService {
     public Boolean addEmployee(
         @WebParam(name = "employee", targetNamespace = "")
         Employee employee);
-
-    /**
-     * 
-     * @param newEmployee
-     * @return
-     *     returns java.lang.Boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "editEmployee", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.EditEmployee")
-    @ResponseWrapper(localName = "editEmployeeResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.EditEmployeeResponse")
-    @Action(input = "http://EmployeeWebService/EmployeeWebService/editEmployeeRequest", output = "http://EmployeeWebService/EmployeeWebService/editEmployeeResponse")
-    public Boolean editEmployee(
-        @WebParam(name = "newEmployee", targetNamespace = "")
-        Employee newEmployee);
 
     /**
      * 
@@ -72,14 +69,17 @@ public interface EmployeeWebService {
 
     /**
      * 
+     * @param newEmployee
      * @return
-     *     returns java.util.List<employeewebservice.Employee>
+     *     returns java.lang.Boolean
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "viewEmployeesList", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.ViewEmployeesList")
-    @ResponseWrapper(localName = "viewEmployeesListResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.ViewEmployeesListResponse")
-    @Action(input = "http://EmployeeWebService/EmployeeWebService/viewEmployeesListRequest", output = "http://EmployeeWebService/EmployeeWebService/viewEmployeesListResponse")
-    public List<Employee> viewEmployeesList();
+    @RequestWrapper(localName = "editEmployee", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.EditEmployee")
+    @ResponseWrapper(localName = "editEmployeeResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.EditEmployeeResponse")
+    @Action(input = "http://EmployeeWebService/EmployeeWebService/editEmployeeRequest", output = "http://EmployeeWebService/EmployeeWebService/editEmployeeResponse")
+    public Boolean editEmployee(
+        @WebParam(name = "newEmployee", targetNamespace = "")
+        Employee newEmployee);
 
 }

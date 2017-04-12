@@ -23,6 +23,8 @@ public class EmployeeWebService {
         Employee user = new Employee("USER", "DEFAULT", "USER", "USER");
         employees.add(user);
     }
+    
+       
 
     /**
      * Web service operation
@@ -51,8 +53,9 @@ public class EmployeeWebService {
         //TODO write your implementation code here:
         Iterator<Employee> iterator = employees.iterator();
         while (iterator.hasNext()) {
-            if(iterator.next().getUserName().equalsIgnoreCase(employeeUserName)){
-                employees.remove(iterator.next());
+            Employee e = iterator.next();
+            if(e.getUserName().equalsIgnoreCase(employeeUserName)){
+                employees.remove(e);
                 break;
             }
         }
@@ -67,8 +70,9 @@ public class EmployeeWebService {
         //TODO write your implementation code here:
         Iterator<Employee> iterator = employees.iterator();
         while (iterator.hasNext()) {
-            if(iterator.next().getUserName().equalsIgnoreCase(newEmployee.getUserName())){
-                employees.remove(iterator.next());
+            Employee e = iterator.next();
+            if(e.getUserName().equalsIgnoreCase(newEmployee.getUserName())){
+                employees.remove(e);
                 employees.add(newEmployee);
                 break;
             }

@@ -50,8 +50,9 @@ public class CustomerWebService {
         //TODO write your implementation code here:
         Iterator<Customer> iterator = f.iterator();
         while (iterator.hasNext()) {
-            if(iterator.next().accountNumber.equalsIgnoreCase(newCustomer.accountNumber)){
-                f.remove(iterator.next());
+            Customer e = iterator.next();
+            if(e.accountNumber.equalsIgnoreCase(newCustomer.accountNumber)){
+                f.remove(e);
                 f.add(newCustomer);
                 break;
             }
@@ -67,8 +68,9 @@ public class CustomerWebService {
         //TODO write your implementation code here:
         Iterator<Customer> iterator = f.iterator();
         while (iterator.hasNext()) {
-            if(iterator.next().accountNumber.equalsIgnoreCase(iD)){
-                f.remove(iterator.next());
+            Customer e = iterator.next();
+            if(e.accountNumber.equalsIgnoreCase(iD)){
+                f.remove(e);
                 break;
             }
         }

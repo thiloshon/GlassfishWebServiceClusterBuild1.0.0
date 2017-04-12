@@ -27,6 +27,18 @@ public interface CustomerWebService {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<customerwebservice.Customer>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "viewCustomerList", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.ViewCustomerList")
+    @ResponseWrapper(localName = "viewCustomerListResponse", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.ViewCustomerListResponse")
+    @Action(input = "http://CustomerWebService/CustomerWebService/viewCustomerListRequest", output = "http://CustomerWebService/CustomerWebService/viewCustomerListResponse")
+    public List<Customer> viewCustomerList();
+
+    /**
+     * 
      * @param iD
      * @return
      *     returns java.lang.Boolean
@@ -42,33 +54,6 @@ public interface CustomerWebService {
 
     /**
      * 
-     * @param newCustomer
-     * @return
-     *     returns java.lang.Boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "editCustomer", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.EditCustomer")
-    @ResponseWrapper(localName = "editCustomerResponse", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.EditCustomerResponse")
-    @Action(input = "http://CustomerWebService/CustomerWebService/editCustomerRequest", output = "http://CustomerWebService/CustomerWebService/editCustomerResponse")
-    public Boolean editCustomer(
-        @WebParam(name = "newCustomer", targetNamespace = "")
-        Customer newCustomer);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<customerwebservice.Customer>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "viewCustomerList", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.ViewCustomerList")
-    @ResponseWrapper(localName = "viewCustomerListResponse", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.ViewCustomerListResponse")
-    @Action(input = "http://CustomerWebService/CustomerWebService/viewCustomerListRequest", output = "http://CustomerWebService/CustomerWebService/viewCustomerListResponse")
-    public List<Customer> viewCustomerList();
-
-    /**
-     * 
      * @param customer
      * @return
      *     returns java.lang.Boolean
@@ -81,5 +66,20 @@ public interface CustomerWebService {
     public Boolean addCustomer(
         @WebParam(name = "customer", targetNamespace = "")
         Customer customer);
+
+    /**
+     * 
+     * @param newCustomer
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "editCustomer", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.EditCustomer")
+    @ResponseWrapper(localName = "editCustomerResponse", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.EditCustomerResponse")
+    @Action(input = "http://CustomerWebService/CustomerWebService/editCustomerRequest", output = "http://CustomerWebService/CustomerWebService/editCustomerResponse")
+    public Boolean editCustomer(
+        @WebParam(name = "newCustomer", targetNamespace = "")
+        Customer newCustomer);
 
 }

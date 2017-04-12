@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class App extends javax.swing.JFrame {
 
-    List<Employee> employeesCheck = Client.viewEmployeesList();
+    static List<Employee> employeesCheck = Client.viewEmployeesList();
 
     /**
      * Creates new form App
@@ -23,6 +23,10 @@ public class App extends javax.swing.JFrame {
     public App() {
         initComponents();
         //Client.operation("");
+    }
+
+    public static void update() {
+        employeesCheck = Client.viewEmployeesList();
     }
 
     /**
@@ -45,12 +49,22 @@ public class App extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LootHeap Bank Services Build 1.0.0");
+        setBackground(new java.awt.Color(21, 21, 21));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(java.awt.Color.black);
 
+        jTextField1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+
+        jLabel1.setBackground(new java.awt.Color(113, 206, 229));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel1.setText("User Name");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel2.setText("Password");
 
+        jPasswordField1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+
+        jButton2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +72,16 @@ public class App extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Employee List");
+        jButton3.setBackground(new java.awt.Color(204, 204, 204));
+        jButton3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jButton3.setText("Customer List");
+        jButton3.setAlignmentY(0.0F);
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton3.setBorderPainted(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton3.setFocusPainted(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setMargin(new java.awt.Insets(2, 14, 2, 24));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -80,20 +103,19 @@ public class App extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addContainerGap(147, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addGap(44, 44, 44)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                        .addComponent(jTextField1))
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -101,7 +123,7 @@ public class App extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(156, 156, 156)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
@@ -109,32 +131,26 @@ public class App extends javax.swing.JFrame {
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addGap(39, 39, 39)
+                        .addGap(41, 41, 41)
                         .addComponent(jButton2))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(211, 211, 211)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jButton3)))
-                .addContainerGap(132, Short.MAX_VALUE))
+                        .addGap(143, 143, 143)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+            .addComponent(jDesktopPane1)
         );
 
         pack();
@@ -142,15 +158,16 @@ public class App extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        EmployeeList.main(null);
+
+        CustomerList.main(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        System.out.print("Asdf " +employeesCheck.size());
+
         boolean check = false;
-        
-        
+        boolean correctUsername = false;
+
         for (Employee emp : employeesCheck) {
             System.out.print(emp.getName());
             if (emp.getUserName().equalsIgnoreCase(jTextField1.getText()) && emp.getPassword().equalsIgnoreCase(new String(jPasswordField1.getPassword()))) {
@@ -158,23 +175,21 @@ public class App extends javax.swing.JFrame {
                 break;
             } else if (emp.getUserName().equalsIgnoreCase(jTextField1.getText())) {
                 JOptionPane.showMessageDialog(null, "Incorrect Password");
-                jTextField1.setText("");
-                
-                break;
-
-            }else{
-                JOptionPane.showMessageDialog(null, "Incorrect Combination. Try Again");
-                jTextField1.setText("");
                 jPasswordField1.setText("");
+                correctUsername = true;
                 break;
-            } 
+
+            }
         }
 
-        if(check){
-            CustomerList.main(null);
+        if (check) {
+            EmployeeList.main(null);
+        } else if (!correctUsername) {
+            JOptionPane.showMessageDialog(null, "Incorrect Combination. Try Again");
+            jTextField1.setText("");
+            jPasswordField1.setText("");
+            //break;
         }
-        
-
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

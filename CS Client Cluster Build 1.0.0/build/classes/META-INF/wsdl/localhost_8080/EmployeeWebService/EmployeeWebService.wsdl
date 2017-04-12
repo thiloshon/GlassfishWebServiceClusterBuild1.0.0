@@ -4,17 +4,17 @@
 <xsd:import namespace="http://EmployeeWebService/" schemaLocation="http://localhost:8080/EmployeeWebService/EmployeeWebService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="viewEmployeesList">
+<part name="parameters" element="tns:viewEmployeesList"/>
+</message>
+<message name="viewEmployeesListResponse">
+<part name="parameters" element="tns:viewEmployeesListResponse"/>
+</message>
 <message name="addEmployee">
 <part name="parameters" element="tns:addEmployee"/>
 </message>
 <message name="addEmployeeResponse">
 <part name="parameters" element="tns:addEmployeeResponse"/>
-</message>
-<message name="editEmployee">
-<part name="parameters" element="tns:editEmployee"/>
-</message>
-<message name="editEmployeeResponse">
-<part name="parameters" element="tns:editEmployeeResponse"/>
 </message>
 <message name="deleteEmployee">
 <part name="parameters" element="tns:deleteEmployee"/>
@@ -22,33 +22,33 @@
 <message name="deleteEmployeeResponse">
 <part name="parameters" element="tns:deleteEmployeeResponse"/>
 </message>
-<message name="viewEmployeesList">
-<part name="parameters" element="tns:viewEmployeesList"/>
+<message name="editEmployee">
+<part name="parameters" element="tns:editEmployee"/>
 </message>
-<message name="viewEmployeesListResponse">
-<part name="parameters" element="tns:viewEmployeesListResponse"/>
+<message name="editEmployeeResponse">
+<part name="parameters" element="tns:editEmployeeResponse"/>
 </message>
 <portType name="EmployeeWebService">
+<operation name="viewEmployeesList">
+<input wsam:Action="http://EmployeeWebService/EmployeeWebService/viewEmployeesListRequest" message="tns:viewEmployeesList"/>
+<output wsam:Action="http://EmployeeWebService/EmployeeWebService/viewEmployeesListResponse" message="tns:viewEmployeesListResponse"/>
+</operation>
 <operation name="addEmployee">
 <input wsam:Action="http://EmployeeWebService/EmployeeWebService/addEmployeeRequest" message="tns:addEmployee"/>
 <output wsam:Action="http://EmployeeWebService/EmployeeWebService/addEmployeeResponse" message="tns:addEmployeeResponse"/>
-</operation>
-<operation name="editEmployee">
-<input wsam:Action="http://EmployeeWebService/EmployeeWebService/editEmployeeRequest" message="tns:editEmployee"/>
-<output wsam:Action="http://EmployeeWebService/EmployeeWebService/editEmployeeResponse" message="tns:editEmployeeResponse"/>
 </operation>
 <operation name="deleteEmployee">
 <input wsam:Action="http://EmployeeWebService/EmployeeWebService/deleteEmployeeRequest" message="tns:deleteEmployee"/>
 <output wsam:Action="http://EmployeeWebService/EmployeeWebService/deleteEmployeeResponse" message="tns:deleteEmployeeResponse"/>
 </operation>
-<operation name="viewEmployeesList">
-<input wsam:Action="http://EmployeeWebService/EmployeeWebService/viewEmployeesListRequest" message="tns:viewEmployeesList"/>
-<output wsam:Action="http://EmployeeWebService/EmployeeWebService/viewEmployeesListResponse" message="tns:viewEmployeesListResponse"/>
+<operation name="editEmployee">
+<input wsam:Action="http://EmployeeWebService/EmployeeWebService/editEmployeeRequest" message="tns:editEmployee"/>
+<output wsam:Action="http://EmployeeWebService/EmployeeWebService/editEmployeeResponse" message="tns:editEmployeeResponse"/>
 </operation>
 </portType>
 <binding name="EmployeeWebServicePortBinding" type="tns:EmployeeWebService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="addEmployee">
+<operation name="viewEmployeesList">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -57,7 +57,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="editEmployee">
+<operation name="addEmployee">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -75,7 +75,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="viewEmployeesList">
+<operation name="editEmployee">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

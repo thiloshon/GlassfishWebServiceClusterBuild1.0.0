@@ -18,53 +18,43 @@ import java.util.List;
  */
 public class Client {
 
-    /*public static void main(String[] args) {
+    public static Boolean addEmployee(employeewebservice.Employee employee) {
+        employeewebservice.EmployeeWebService_Service service = new employeewebservice.EmployeeWebService_Service();
+        employeewebservice.EmployeeWebService port = service.getEmployeeWebServicePort();
+        return port.addEmployee(employee);
+    }
+
+    public static void main(String[] args) {
         List<Customer> ans = viewCustomerList();
 
         for (int x = 0; x < ans.size(); x++) {
             System.out.println(((Customer) ans.get(x)).getAccountNumber());
         }
 
-    }*/
-
-    
-
-    public static java.util.List<customerwebservice.Customer> viewCustomerList() {
-        customerwebservice.CustomerWebService_Service service = new customerwebservice.CustomerWebService_Service();
-        customerwebservice.CustomerWebService port = service.getCustomerWebServicePort();
-        return port.viewCustomerList();
-    }
-
-    public static Boolean addCustomer(Customer customer) {
-        customerwebservice.CustomerWebService_Service service = new customerwebservice.CustomerWebService_Service();
-        customerwebservice.CustomerWebService port = service.getCustomerWebServicePort();
-        return port.addCustomer(customer);
-    }
-
-    
-
-    public static Boolean addEmployee(Employee employee) {
-        EmployeeWebService_Service service = new EmployeeWebService_Service();
-        EmployeeWebService port = service.getEmployeeWebServicePort();
-        return port.addEmployee(employee);
     }
 
     public static Boolean deleteEmployee(java.lang.String employeeUserName) {
-        EmployeeWebService_Service service = new EmployeeWebService_Service();
-        EmployeeWebService port = service.getEmployeeWebServicePort();
+        employeewebservice.EmployeeWebService_Service service = new employeewebservice.EmployeeWebService_Service();
+        employeewebservice.EmployeeWebService port = service.getEmployeeWebServicePort();
         return port.deleteEmployee(employeeUserName);
     }
 
-    public static Boolean editEmployee(Employee newEmployee) {
-        EmployeeWebService_Service service = new EmployeeWebService_Service();
-        EmployeeWebService port = service.getEmployeeWebServicePort();
+    public static Boolean editEmployee(employeewebservice.Employee newEmployee) {
+        employeewebservice.EmployeeWebService_Service service = new employeewebservice.EmployeeWebService_Service();
+        employeewebservice.EmployeeWebService port = service.getEmployeeWebServicePort();
         return port.editEmployee(newEmployee);
     }
 
-    public static java.util.List<Employee> viewEmployeesList() {
-        EmployeeWebService_Service service = new EmployeeWebService_Service();
-        EmployeeWebService port = service.getEmployeeWebServicePort();
+    public static java.util.List<employeewebservice.Employee> viewEmployeesList() {
+        employeewebservice.EmployeeWebService_Service service = new employeewebservice.EmployeeWebService_Service();
+        employeewebservice.EmployeeWebService port = service.getEmployeeWebServicePort();
         return port.viewEmployeesList();
+    }
+
+    public static Boolean addCustomer(customerwebservice.Customer customer) {
+        customerwebservice.CustomerWebService_Service service = new customerwebservice.CustomerWebService_Service();
+        customerwebservice.CustomerWebService port = service.getCustomerWebServicePort();
+        return port.addCustomer(customer);
     }
 
     public static Boolean deleteCustomer(java.lang.String iD) {
@@ -78,6 +68,16 @@ public class Client {
         customerwebservice.CustomerWebService port = service.getCustomerWebServicePort();
         return port.editCustomer(newCustomer);
     }
+
+    public static java.util.List<customerwebservice.Customer> viewCustomerList() {
+        customerwebservice.CustomerWebService_Service service = new customerwebservice.CustomerWebService_Service();
+        customerwebservice.CustomerWebService port = service.getCustomerWebServicePort();
+        return port.viewCustomerList();
+    }
+
+    
+
+    
     
     
 
