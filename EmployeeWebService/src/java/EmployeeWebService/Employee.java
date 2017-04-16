@@ -9,7 +9,7 @@ package EmployeeWebService;
  *
  * @author Nipuni(X552L)
  */
-public class Employee {
+public class Employee implements java.io.Serializable{
     
     public String name;
     public String post;

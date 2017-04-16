@@ -9,7 +9,7 @@ package CustomerWebService;
 /**
  * @author Thiloshon
  */
-public class Customer {
+public class Customer implements java.io.Serializable{
     public String accountNumber;
     public String accountType;
     public String address;
