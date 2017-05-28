@@ -28,9 +28,13 @@ public class ObjectFactory {
     private final static QName _AddCustomerResponse_QNAME = new QName("http://CustomerWebService/", "addCustomerResponse");
     private final static QName _AddCustomer_QNAME = new QName("http://CustomerWebService/", "addCustomer");
     private final static QName _EditCustomer_QNAME = new QName("http://CustomerWebService/", "editCustomer");
+    private final static QName _LoadDataResponse_QNAME = new QName("http://CustomerWebService/", "loadDataResponse");
+    private final static QName _SaveDataResponse_QNAME = new QName("http://CustomerWebService/", "saveDataResponse");
     private final static QName _DeleteCustomerResponse_QNAME = new QName("http://CustomerWebService/", "deleteCustomerResponse");
     private final static QName _EditCustomerResponse_QNAME = new QName("http://CustomerWebService/", "editCustomerResponse");
+    private final static QName _SaveData_QNAME = new QName("http://CustomerWebService/", "saveData");
     private final static QName _DeleteCustomer_QNAME = new QName("http://CustomerWebService/", "deleteCustomer");
+    private final static QName _LoadData_QNAME = new QName("http://CustomerWebService/", "loadData");
     private final static QName _ViewCustomerListResponse_QNAME = new QName("http://CustomerWebService/", "viewCustomerListResponse");
 
     /**
@@ -57,6 +61,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link LoadDataResponse }
+     * 
+     */
+    public LoadDataResponse createLoadDataResponse() {
+        return new LoadDataResponse();
+    }
+
+    /**
      * Create an instance of {@link ViewCustomerList }
      * 
      */
@@ -73,6 +85,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SaveData }
+     * 
+     */
+    public SaveData createSaveData() {
+        return new SaveData();
+    }
+
+    /**
      * Create an instance of {@link DeleteCustomer }
      * 
      */
@@ -81,11 +101,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link LoadData }
+     * 
+     */
+    public LoadData createLoadData() {
+        return new LoadData();
+    }
+
+    /**
      * Create an instance of {@link ViewCustomerListResponse }
      * 
      */
     public ViewCustomerListResponse createViewCustomerListResponse() {
         return new ViewCustomerListResponse();
+    }
+
+    /**
+     * Create an instance of {@link SaveDataResponse }
+     * 
+     */
+    public SaveDataResponse createSaveDataResponse() {
+        return new SaveDataResponse();
     }
 
     /**
@@ -149,6 +185,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoadDataResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "loadDataResponse")
+    public JAXBElement<LoadDataResponse> createLoadDataResponse(LoadDataResponse value) {
+        return new JAXBElement<LoadDataResponse>(_LoadDataResponse_QNAME, LoadDataResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveDataResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "saveDataResponse")
+    public JAXBElement<SaveDataResponse> createSaveDataResponse(SaveDataResponse value) {
+        return new JAXBElement<SaveDataResponse>(_SaveDataResponse_QNAME, SaveDataResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeleteCustomerResponse }{@code >}}
      * 
      */
@@ -167,12 +221,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveData }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "saveData")
+    public JAXBElement<SaveData> createSaveData(SaveData value) {
+        return new JAXBElement<SaveData>(_SaveData_QNAME, SaveData.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeleteCustomer }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://CustomerWebService/", name = "deleteCustomer")
     public JAXBElement<DeleteCustomer> createDeleteCustomer(DeleteCustomer value) {
         return new JAXBElement<DeleteCustomer>(_DeleteCustomer_QNAME, DeleteCustomer.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoadData }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://CustomerWebService/", name = "loadData")
+    public JAXBElement<LoadData> createLoadData(LoadData value) {
+        return new JAXBElement<LoadData>(_LoadData_QNAME, LoadData.class, null, value);
     }
 
     /**

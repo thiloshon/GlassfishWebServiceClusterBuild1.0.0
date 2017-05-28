@@ -12,6 +12,14 @@
 
 <xs:element name="editCustomerResponse" type="tns:editCustomerResponse"/>
 
+<xs:element name="loadData" type="tns:loadData"/>
+
+<xs:element name="loadDataResponse" type="tns:loadDataResponse"/>
+
+<xs:element name="saveData" type="tns:saveData"/>
+
+<xs:element name="saveDataResponse" type="tns:saveDataResponse"/>
+
 <xs:element name="viewCustomerList" type="tns:viewCustomerList"/>
 
 <xs:element name="viewCustomerListResponse" type="tns:viewCustomerListResponse"/>
@@ -26,6 +34,22 @@
 <xs:sequence>
 <xs:element name="return" type="xs:boolean" minOccurs="0"/>
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loadData">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="loadDataResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="saveData">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="saveDataResponse">
+<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="viewCustomerList">

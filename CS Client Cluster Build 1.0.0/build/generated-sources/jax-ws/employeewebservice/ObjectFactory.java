@@ -24,9 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _LoadData_QNAME = new QName("http://EmployeeWebService/", "loadData");
+    private final static QName _SaveData_QNAME = new QName("http://EmployeeWebService/", "saveData");
     private final static QName _AddEmployee_QNAME = new QName("http://EmployeeWebService/", "addEmployee");
     private final static QName _AddEmployeeResponse_QNAME = new QName("http://EmployeeWebService/", "addEmployeeResponse");
+    private final static QName _SaveDataResponse_QNAME = new QName("http://EmployeeWebService/", "saveDataResponse");
     private final static QName _DeleteEmployee_QNAME = new QName("http://EmployeeWebService/", "deleteEmployee");
+    private final static QName _LoadDataResponse_QNAME = new QName("http://EmployeeWebService/", "loadDataResponse");
     private final static QName _ViewEmployeesListResponse_QNAME = new QName("http://EmployeeWebService/", "viewEmployeesListResponse");
     private final static QName _DeleteEmployeeResponse_QNAME = new QName("http://EmployeeWebService/", "deleteEmployeeResponse");
     private final static QName _EditEmployee_QNAME = new QName("http://EmployeeWebService/", "editEmployee");
@@ -38,6 +42,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link LoadDataResponse }
+     * 
+     */
+    public LoadDataResponse createLoadDataResponse() {
+        return new LoadDataResponse();
     }
 
     /**
@@ -81,11 +93,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SaveData }
+     * 
+     */
+    public SaveData createSaveData() {
+        return new SaveData();
+    }
+
+    /**
+     * Create an instance of {@link LoadData }
+     * 
+     */
+    public LoadData createLoadData() {
+        return new LoadData();
+    }
+
+    /**
      * Create an instance of {@link AddEmployeeResponse }
      * 
      */
     public AddEmployeeResponse createAddEmployeeResponse() {
         return new AddEmployeeResponse();
+    }
+
+    /**
+     * Create an instance of {@link SaveDataResponse }
+     * 
+     */
+    public SaveDataResponse createSaveDataResponse() {
+        return new SaveDataResponse();
     }
 
     /**
@@ -113,6 +149,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoadData }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://EmployeeWebService/", name = "loadData")
+    public JAXBElement<LoadData> createLoadData(LoadData value) {
+        return new JAXBElement<LoadData>(_LoadData_QNAME, LoadData.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveData }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://EmployeeWebService/", name = "saveData")
+    public JAXBElement<SaveData> createSaveData(SaveData value) {
+        return new JAXBElement<SaveData>(_SaveData_QNAME, SaveData.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddEmployee }{@code >}}
      * 
      */
@@ -131,12 +185,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveDataResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://EmployeeWebService/", name = "saveDataResponse")
+    public JAXBElement<SaveDataResponse> createSaveDataResponse(SaveDataResponse value) {
+        return new JAXBElement<SaveDataResponse>(_SaveDataResponse_QNAME, SaveDataResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeleteEmployee }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://EmployeeWebService/", name = "deleteEmployee")
     public JAXBElement<DeleteEmployee> createDeleteEmployee(DeleteEmployee value) {
         return new JAXBElement<DeleteEmployee>(_DeleteEmployee_QNAME, DeleteEmployee.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoadDataResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://EmployeeWebService/", name = "loadDataResponse")
+    public JAXBElement<LoadDataResponse> createLoadDataResponse(LoadDataResponse value) {
+        return new JAXBElement<LoadDataResponse>(_LoadDataResponse_QNAME, LoadDataResponse.class, null, value);
     }
 
     /**

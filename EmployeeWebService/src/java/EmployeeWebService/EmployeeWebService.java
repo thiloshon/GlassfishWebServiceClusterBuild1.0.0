@@ -93,7 +93,7 @@ public class EmployeeWebService {
     }
 
     public void saveData() {
-        File file = new File("data.txt");
+        File file = new File("C:\\Users\\Thiloshon\\NetBeans Project\\CS\\EmployeeWebService\\data\\data.txt");
 
         FileOutputStream fos = null;
         try {
@@ -129,7 +129,9 @@ public class EmployeeWebService {
      * This method loads the objects in the binary format from the file.
      */
     public void loadData() {
-        File file = new File("data.txt");
+        // C:\Users\Thiloshon\AppData\Roaming\NetBeans\8.2\config\GF_4.1.1\domain1\config\data.txt
+        File file = new File("C:\\Users\\Thiloshon\\NetBeans Project\\CS\\EmployeeWebService\\data\\data.txt");
+        
         FileInputStream fis = null;
         //System.out.print("hi1");
         try {

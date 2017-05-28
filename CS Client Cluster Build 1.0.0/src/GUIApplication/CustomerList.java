@@ -6,10 +6,13 @@
 package GUIApplication;
 
 import Client.Client;
+import java.awt.Color;
+import java.awt.Font;
 
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  * @author Thiloshon
@@ -23,6 +26,12 @@ public class CustomerList extends javax.swing.JFrame {
      */
     public CustomerList() {
         initComponents();
+        
+        jTable1.getTableHeader().setFont(new Font("segoe ui light", Font.PLAIN, 18));
+
+        JTableHeader header = jTable1.getTableHeader();
+        header.setSize(header.getWidth(), 40);
+        header.setBackground(Color.GREEN);
 
         cus = Client.viewCustomerList();
 
@@ -64,7 +73,7 @@ public class CustomerList extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(216, 216, 216));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 700));
 
-        jTable1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -122,7 +131,7 @@ public class CustomerList extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -162,11 +171,11 @@ public class CustomerList extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-
+       
         Object columnNames[] = {"Name", "BirthDate", "Address", "Mobile", "E-Mail"};
 
         cus = Client.viewCustomerList();
+        System.out.println(cus.size());
 
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
@@ -175,7 +184,10 @@ public class CustomerList extends javax.swing.JFrame {
             model.addRow(rowData);
         }
 
+        
         jTable1.setModel(model);
+
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

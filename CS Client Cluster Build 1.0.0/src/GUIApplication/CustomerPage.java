@@ -282,8 +282,8 @@ public class CustomerPage extends javax.swing.JFrame {
         cus.setAccountNumber(jTextField2.getText());
         cus.setAccountType(jTextField4.getText());
         cus.setAddress(jTextField3.getText());
-        cus.setBalance(jTextField5.getText());
-        cus.setBirthDate(jTextField8.getText());
+        cus.setBalance(jTextField8.getText());
+        cus.setBirthDate(jTextField5.getText());
         cus.setCard(jTextField10.getText());
         cus.setEmail(jTextField7.getText());
         cus.setMobile(jTextField6.getText());
@@ -292,7 +292,7 @@ public class CustomerPage extends javax.swing.JFrame {
 
         if (Client.addCustomer(cus)) {
             //exit(0);
-
+            App.update();
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
 
@@ -306,8 +306,8 @@ public class CustomerPage extends javax.swing.JFrame {
         cus.setAccountNumber(jTextField2.getText());
         cus.setAccountType(jTextField4.getText());
         cus.setAddress(jTextField3.getText());
-        cus.setBalance(jTextField5.getText());
-        cus.setBirthDate(jTextField8.getText());
+        cus.setBalance(jTextField8.getText());
+        cus.setBirthDate(jTextField5.getText());
         cus.setCard(jTextField10.getText());
         cus.setEmail(jTextField7.getText());
         cus.setMobile(jTextField6.getText());
@@ -317,9 +317,10 @@ public class CustomerPage extends javax.swing.JFrame {
         if (Client.editCustomer(cus)) {
             //exit(0);
 
+            App.update();
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -369,6 +370,5 @@ public class CustomerPage extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
-
 
 }

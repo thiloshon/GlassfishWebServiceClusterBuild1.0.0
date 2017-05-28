@@ -91,7 +91,7 @@ public class CustomerWebService {
     
     
     public void saveData() {
-        File file = new File("data.txt");
+        File file = new File("C:\\Users\\Thiloshon\\NetBeans Project\\CS\\CustomerWebService\\data\\data.txt");
 
         FileOutputStream fos = null;
         try {
@@ -127,7 +127,7 @@ public class CustomerWebService {
      * This method loads the objects in the binary format from the file.
      */
     public void loadData() {
-        File file = new File("data.txt");
+        File file = new File("C:\\Users\\Thiloshon\\NetBeans Project\\CS\\CustomerWebService\\data\\data.txt");
         FileInputStream fis = null;
         //System.out.print("hi1");
         try {
@@ -137,12 +137,15 @@ public class CustomerWebService {
             System.out.println("File Not Found1");
         }
         ObjectInputStream ois = null;
+        
+        
 
         try {
 
             if (fis.available() != 0) {
                 //System.out.print("hi2");
                 ois = new ObjectInputStream(fis);
+                f = new ArrayList();
                 while (ois != null) {
                     try {
                         Customer emp = (Customer) ois.readObject();

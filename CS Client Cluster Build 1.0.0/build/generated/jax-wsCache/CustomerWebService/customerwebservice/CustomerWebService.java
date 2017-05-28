@@ -27,18 +27,6 @@ public interface CustomerWebService {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<customerwebservice.Customer>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "viewCustomerList", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.ViewCustomerList")
-    @ResponseWrapper(localName = "viewCustomerListResponse", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.ViewCustomerListResponse")
-    @Action(input = "http://CustomerWebService/CustomerWebService/viewCustomerListRequest", output = "http://CustomerWebService/CustomerWebService/viewCustomerListResponse")
-    public List<Customer> viewCustomerList();
-
-    /**
-     * 
      * @param iD
      * @return
      *     returns java.lang.Boolean
@@ -51,6 +39,27 @@ public interface CustomerWebService {
     public Boolean deleteCustomer(
         @WebParam(name = "iD", targetNamespace = "")
         String iD);
+
+    /**
+     * 
+     */
+    @WebMethod
+    @RequestWrapper(localName = "saveData", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.SaveData")
+    @ResponseWrapper(localName = "saveDataResponse", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.SaveDataResponse")
+    @Action(input = "http://CustomerWebService/CustomerWebService/saveDataRequest", output = "http://CustomerWebService/CustomerWebService/saveDataResponse")
+    public void saveData();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<customerwebservice.Customer>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "viewCustomerList", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.ViewCustomerList")
+    @ResponseWrapper(localName = "viewCustomerListResponse", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.ViewCustomerListResponse")
+    @Action(input = "http://CustomerWebService/CustomerWebService/viewCustomerListRequest", output = "http://CustomerWebService/CustomerWebService/viewCustomerListResponse")
+    public List<Customer> viewCustomerList();
 
     /**
      * 
@@ -81,5 +90,14 @@ public interface CustomerWebService {
     public Boolean editCustomer(
         @WebParam(name = "newCustomer", targetNamespace = "")
         Customer newCustomer);
+
+    /**
+     * 
+     */
+    @WebMethod
+    @RequestWrapper(localName = "loadData", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.LoadData")
+    @ResponseWrapper(localName = "loadDataResponse", targetNamespace = "http://CustomerWebService/", className = "customerwebservice.LoadDataResponse")
+    @Action(input = "http://CustomerWebService/CustomerWebService/loadDataRequest", output = "http://CustomerWebService/CustomerWebService/loadDataResponse")
+    public void loadData();
 
 }

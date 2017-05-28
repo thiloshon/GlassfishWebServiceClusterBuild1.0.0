@@ -4,17 +4,23 @@
 <xsd:import namespace="http://CustomerWebService/" schemaLocation="http://localhost:8080/CustomerWebService/CustomerWebService?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="viewCustomerList">
-<part name="parameters" element="tns:viewCustomerList"/>
-</message>
-<message name="viewCustomerListResponse">
-<part name="parameters" element="tns:viewCustomerListResponse"/>
-</message>
 <message name="deleteCustomer">
 <part name="parameters" element="tns:deleteCustomer"/>
 </message>
 <message name="deleteCustomerResponse">
 <part name="parameters" element="tns:deleteCustomerResponse"/>
+</message>
+<message name="saveData">
+<part name="parameters" element="tns:saveData"/>
+</message>
+<message name="saveDataResponse">
+<part name="parameters" element="tns:saveDataResponse"/>
+</message>
+<message name="viewCustomerList">
+<part name="parameters" element="tns:viewCustomerList"/>
+</message>
+<message name="viewCustomerListResponse">
+<part name="parameters" element="tns:viewCustomerListResponse"/>
 </message>
 <message name="addCustomer">
 <part name="parameters" element="tns:addCustomer"/>
@@ -28,14 +34,24 @@
 <message name="editCustomerResponse">
 <part name="parameters" element="tns:editCustomerResponse"/>
 </message>
+<message name="loadData">
+<part name="parameters" element="tns:loadData"/>
+</message>
+<message name="loadDataResponse">
+<part name="parameters" element="tns:loadDataResponse"/>
+</message>
 <portType name="CustomerWebService">
-<operation name="viewCustomerList">
-<input wsam:Action="http://CustomerWebService/CustomerWebService/viewCustomerListRequest" message="tns:viewCustomerList"/>
-<output wsam:Action="http://CustomerWebService/CustomerWebService/viewCustomerListResponse" message="tns:viewCustomerListResponse"/>
-</operation>
 <operation name="deleteCustomer">
 <input wsam:Action="http://CustomerWebService/CustomerWebService/deleteCustomerRequest" message="tns:deleteCustomer"/>
 <output wsam:Action="http://CustomerWebService/CustomerWebService/deleteCustomerResponse" message="tns:deleteCustomerResponse"/>
+</operation>
+<operation name="saveData">
+<input wsam:Action="http://CustomerWebService/CustomerWebService/saveDataRequest" message="tns:saveData"/>
+<output wsam:Action="http://CustomerWebService/CustomerWebService/saveDataResponse" message="tns:saveDataResponse"/>
+</operation>
+<operation name="viewCustomerList">
+<input wsam:Action="http://CustomerWebService/CustomerWebService/viewCustomerListRequest" message="tns:viewCustomerList"/>
+<output wsam:Action="http://CustomerWebService/CustomerWebService/viewCustomerListResponse" message="tns:viewCustomerListResponse"/>
 </operation>
 <operation name="addCustomer">
 <input wsam:Action="http://CustomerWebService/CustomerWebService/addCustomerRequest" message="tns:addCustomer"/>
@@ -45,10 +61,14 @@
 <input wsam:Action="http://CustomerWebService/CustomerWebService/editCustomerRequest" message="tns:editCustomer"/>
 <output wsam:Action="http://CustomerWebService/CustomerWebService/editCustomerResponse" message="tns:editCustomerResponse"/>
 </operation>
+<operation name="loadData">
+<input wsam:Action="http://CustomerWebService/CustomerWebService/loadDataRequest" message="tns:loadData"/>
+<output wsam:Action="http://CustomerWebService/CustomerWebService/loadDataResponse" message="tns:loadDataResponse"/>
+</operation>
 </portType>
 <binding name="CustomerWebServicePortBinding" type="tns:CustomerWebService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="viewCustomerList">
+<operation name="deleteCustomer">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -57,7 +77,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="deleteCustomer">
+<operation name="saveData">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="viewCustomerList">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -76,6 +105,15 @@
 </output>
 </operation>
 <operation name="editCustomer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="loadData">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

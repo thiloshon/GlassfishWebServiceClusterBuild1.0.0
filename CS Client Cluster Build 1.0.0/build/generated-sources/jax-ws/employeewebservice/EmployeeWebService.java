@@ -27,15 +27,21 @@ public interface EmployeeWebService {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<employeewebservice.Employee>
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "viewEmployeesList", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.ViewEmployeesList")
-    @ResponseWrapper(localName = "viewEmployeesListResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.ViewEmployeesListResponse")
-    @Action(input = "http://EmployeeWebService/EmployeeWebService/viewEmployeesListRequest", output = "http://EmployeeWebService/EmployeeWebService/viewEmployeesListResponse")
-    public List<Employee> viewEmployeesList();
+    @RequestWrapper(localName = "saveData", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.SaveData")
+    @ResponseWrapper(localName = "saveDataResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.SaveDataResponse")
+    @Action(input = "http://EmployeeWebService/EmployeeWebService/saveDataRequest", output = "http://EmployeeWebService/EmployeeWebService/saveDataResponse")
+    public void saveData();
+
+    /**
+     * 
+     */
+    @WebMethod
+    @RequestWrapper(localName = "loadData", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.LoadData")
+    @ResponseWrapper(localName = "loadDataResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.LoadDataResponse")
+    @Action(input = "http://EmployeeWebService/EmployeeWebService/loadDataRequest", output = "http://EmployeeWebService/EmployeeWebService/loadDataResponse")
+    public void loadData();
 
     /**
      * 
@@ -54,6 +60,21 @@ public interface EmployeeWebService {
 
     /**
      * 
+     * @param newEmployee
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "editEmployee", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.EditEmployee")
+    @ResponseWrapper(localName = "editEmployeeResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.EditEmployeeResponse")
+    @Action(input = "http://EmployeeWebService/EmployeeWebService/editEmployeeRequest", output = "http://EmployeeWebService/EmployeeWebService/editEmployeeResponse")
+    public Boolean editEmployee(
+        @WebParam(name = "newEmployee", targetNamespace = "")
+        Employee newEmployee);
+
+    /**
+     * 
      * @param employeeUserName
      * @return
      *     returns java.lang.Boolean
@@ -69,17 +90,14 @@ public interface EmployeeWebService {
 
     /**
      * 
-     * @param newEmployee
      * @return
-     *     returns java.lang.Boolean
+     *     returns java.util.List<employeewebservice.Employee>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "editEmployee", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.EditEmployee")
-    @ResponseWrapper(localName = "editEmployeeResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.EditEmployeeResponse")
-    @Action(input = "http://EmployeeWebService/EmployeeWebService/editEmployeeRequest", output = "http://EmployeeWebService/EmployeeWebService/editEmployeeResponse")
-    public Boolean editEmployee(
-        @WebParam(name = "newEmployee", targetNamespace = "")
-        Employee newEmployee);
+    @RequestWrapper(localName = "viewEmployeesList", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.ViewEmployeesList")
+    @ResponseWrapper(localName = "viewEmployeesListResponse", targetNamespace = "http://EmployeeWebService/", className = "employeewebservice.ViewEmployeesListResponse")
+    @Action(input = "http://EmployeeWebService/EmployeeWebService/viewEmployeesListRequest", output = "http://EmployeeWebService/EmployeeWebService/viewEmployeesListResponse")
+    public List<Employee> viewEmployeesList();
 
 }

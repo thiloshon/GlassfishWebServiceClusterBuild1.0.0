@@ -12,9 +12,33 @@
 
 <xs:element name="editEmployeeResponse" type="tns:editEmployeeResponse"/>
 
+<xs:element name="loadData" type="tns:loadData"/>
+
+<xs:element name="loadDataResponse" type="tns:loadDataResponse"/>
+
+<xs:element name="saveData" type="tns:saveData"/>
+
+<xs:element name="saveDataResponse" type="tns:saveDataResponse"/>
+
 <xs:element name="viewEmployeesList" type="tns:viewEmployeesList"/>
 
 <xs:element name="viewEmployeesListResponse" type="tns:viewEmployeesListResponse"/>
+
+<xs:complexType name="saveData">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="saveDataResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="loadData">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="loadDataResponse">
+<xs:sequence/>
+</xs:complexType>
 
 <xs:complexType name="deleteEmployee">
 <xs:sequence>
